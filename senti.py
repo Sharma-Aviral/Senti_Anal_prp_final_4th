@@ -28,9 +28,10 @@ def sentimenti(sent):
     testimonial = TextBlob(sent)
     if testimonial.sentiment.polarity > 0 :
         print("Nice Words")
-    elif testimonial.sentiment.polarity <= 0:
+    elif testimonial.sentiment.polarity < 0:
         print("Negative Sentiment") 
-
+    else:
+        print("Neutral Sentiment")
 
 user = api.get_user("AviralS85672819")
 print(user.followers_count)
@@ -39,7 +40,7 @@ for friend in user.friends():
 
 
 tweets = api.user_timeline("AviralS85672819")
-for info in tweets[:3]:
+for info in tweets[:number_of_tweeets-1]:
      print("ID: {}".format(info.id))
      print(info.created_at)
      print(info.text)
