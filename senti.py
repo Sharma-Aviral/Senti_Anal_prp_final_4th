@@ -4,8 +4,11 @@ from textblob.taggers import NLTKTagger
 from dotenv import load_dotenv
 import tweepy
 import os
-tweeterUser = "AviralS85672819"
-number_oF_tweets = 10
+tweeterUser = "INCIndia"
+number_oF_tweets = 1000000
+count_Nice = 0
+count_Neg = 0
+count_Neutral = 0
 
 #getting access tokkens and api key form .env
 project_folder = os.path.expanduser('~/Desktop/projects/python/senti')  
@@ -30,11 +33,23 @@ def sentimenti(sent):
     testimonial = TextBlob(sent)
     if testimonial.sentiment.polarity > 0 :
         print("Nice Words")
+        count_Nice = +1
     elif testimonial.sentiment.polarity < 0:
         print("Negative Sentiment") 
+        count_Neg = +1
     else:
         print("Neutral Sentiment")
+        count_Neutral = +1
 
+def count_Senti():
+    if count_Nice >= count_Neg:
+        print("Overall Nice")
+    elif count_Neg >= count_Nice:
+        print("BAd bad") 
+    elif count_Neutral >= count_Neg or count_Neutral >= count_Nice:
+        print("Neutral")        
+    else:
+        print("GG undetermuibg")
 user = api.get_user(tweeterUser)
 print(user.followers_count)
 for friend in user.friends():
@@ -48,3 +63,4 @@ for info in tweets[:number_oF_tweets-1]:
      print(info.text)
      sentimenti(info.text)
      print("\n")
+count_Senti()     
