@@ -40,16 +40,7 @@ def sentimenti(sent):
     else:
         print("Neutral Sentiment")
         count_Neutral = +1
-
-def count_Senti():
-    if count_Nice >= count_Neg:
-        print("Overall Nice")
-    elif count_Neg >= count_Nice:
-        print("BAd bad") 
-    elif count_Neutral >= count_Neg or count_Neutral >= count_Nice:
-        print("Neutral")        
-    else:
-        print("GG undetermuibg")
+        
 user = api.get_user(tweeterUser)
 print(user.followers_count)
 for friend in user.friends():
@@ -63,4 +54,4 @@ for info in tweets[:number_oF_tweets-1]:
      print(info.text)
      sentimenti(info.text)
      print("\n")
-count_Senti()     
+     
