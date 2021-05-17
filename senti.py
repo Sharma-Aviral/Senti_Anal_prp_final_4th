@@ -4,6 +4,8 @@ from textblob.taggers import NLTKTagger
 from dotenv import load_dotenv
 import tweepy
 import os
+tweeterUser = "AviralS85672819"
+number_oF_tweets = 10
 
 #getting access tokkens and api key form .env
 project_folder = os.path.expanduser('~/Desktop/projects/python/senti')  
@@ -33,14 +35,14 @@ def sentimenti(sent):
     else:
         print("Neutral Sentiment")
 
-user = api.get_user("AviralS85672819")
+user = api.get_user(tweeterUser)
 print(user.followers_count)
 for friend in user.friends():
    print(friend.screen_name)    
 
 
-tweets = api.user_timeline("AviralS85672819")
-for info in tweets[:number_of_tweeets-1]:
+tweets = api.user_timeline(tweeterUser)
+for info in tweets[:number_oF_tweets-1]:
      print("ID: {}".format(info.id))
      print(info.created_at)
      print(info.text)
