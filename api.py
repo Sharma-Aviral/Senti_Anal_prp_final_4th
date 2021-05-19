@@ -1,24 +1,8 @@
 from flask import Flask
+from flask import render_template
 
-app = Flask(__name__)
+app = Flask(__name__ ,static_url_path="/static",static_folder="/static")
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-@app.route('/hello/')
-@app.route('/hello/<name>')
-def hello(name=None):
-    return render_template('hello.html', name=name)    
-
-@app.route('/login',methods = ['POST', 'GET'])
-def login():
-   if request.method == 'POST':
-      user = request.form['nm']
-      return redirect(url_for('success',name = user))
-   else:
-      user = request.args.get('nm')
-      return redirect(url_for('success',name = user))
-
-if __name__ == '__main__':
-   app.run(debug = True)    
-    
+def index(): 
+ return render_template("index.html")
