@@ -8,4 +8,4 @@ import senti
 # def index(): 
 #  return render_template("index.html")
 
-senti.twitter_anal("BeerBicesdasdpsGuy" , 10000)
+senti.twitter_anal("BeerBicepsGuy" , 10000)

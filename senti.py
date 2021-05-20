@@ -7,6 +7,8 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
+
+
 global count_Neg
 count_Neg = 0
 global count_Pos
@@ -75,5 +77,7 @@ def twitter_anal(tweeterUser , number_oF_tweets):
     mylabels = ["Positive", "Negative", "Neutral"]
 
     plt.pie(y, labels = mylabels, startangle = 90)
+    plt.savefig(tweeterUser+'.png', dpi=300, bbox_inches='tight')
+    plt.title(tweeterUser+"'s sentiment graph")
     plt.show() 
 
