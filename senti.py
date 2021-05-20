@@ -6,6 +6,7 @@ import tweepy
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import json
 
 
 
@@ -80,4 +81,5 @@ def twitter_anal(tweeterUser , number_oF_tweets):
     plt.savefig(tweeterUser+'.png', dpi=300, bbox_inches='tight')
     plt.title(tweeterUser+"'s sentiment graph")
     plt.show() 
+
 
