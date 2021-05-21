@@ -6,7 +6,6 @@ import tweepy
 import os
 import matplotlib.pyplot as plt
 import numpy as np
-import json
 
 
 
@@ -18,7 +17,8 @@ global count_Neut
 count_Neut = 0
 
 #info_initilisation
-
+userName = input("Enter twitter id:")
+countLimit = int(input("Enter no of tweets to be pulled:"))
 
 #getting access tokkens and api key form .env
 project_folder = os.path.expanduser('~/Desktop/projects/python/senti')  
@@ -78,8 +78,9 @@ def twitter_anal(tweeterUser , number_oF_tweets):
     mylabels = ["Positive", "Negative", "Neutral"]
 
     plt.pie(y, labels = mylabels, startangle = 90)
-    plt.savefig(tweeterUser+'.png', dpi=300, bbox_inches='tight')
     plt.title(tweeterUser+"'s sentiment graph")
+    plt.savefig(tweeterUser+'.png', dpi=300, bbox_inches='tight')
     plt.show() 
 
 
+twitter_anal(userName,countLimit)
